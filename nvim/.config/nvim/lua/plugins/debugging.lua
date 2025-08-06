@@ -30,7 +30,7 @@ return {
     end
 
     -- DEBUGGERS:
-    -- GDB --> C
+    -- GDB --> C / C++ / Rust
     dap.adapters.gdb = {
       type = "executable",
       command = "gdb",
@@ -63,6 +63,8 @@ return {
         cwd = '${workspaceFolder}'
       },
     }
+    dap.configurations.cpp = dap.configurations.c
+    dap.configurations.rust = dap.configurations.c
 
     vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
     vim.keymap.set("n", "<leader>dc", dap.continue, {})

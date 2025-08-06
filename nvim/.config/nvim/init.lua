@@ -4,6 +4,10 @@ require("vim")
 -- LAZY NVIM
 require("config.lazy")
 
+-- Options
+-- vim.opt.wrap = false -- Disable line wrapping
+vim.opt.scrolloff = 8 -- Lines to keep above and below the cursor
+
 -- Change the background for vim-everywhere
 if vim.env.VIM_TRANSPARENT == "1" then
   -- Tabs
