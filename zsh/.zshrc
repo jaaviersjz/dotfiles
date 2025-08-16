@@ -91,7 +91,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git) #zsh-syntax-highlighting
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,6 +163,8 @@ alias age='os-time.sh'
 alias lgit='lazygit'
 # Reflector
 alias reflector='reflector --country Spain --latest 5 --protocol https --protocol http --sort rate'
+# Fortune
+alias quotes='watch -n 20 fortune'
 
 ### fzf
 # source <(fzf --zsh)
