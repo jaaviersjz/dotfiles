@@ -222,8 +222,18 @@ class PlayerManager:
                 "New player appeared, but it's not the selected player, skipping"
             )
 
-    def on_player_vanished(self, _, player):
-        logger.info(f"Player {player.props.player_name} has vanished")
+    def on_player_vanished(self, manager, player_name):
+        logger.info(f"Player {player_name.name} has vanished")
+        
+        # Cancel scroll timer
+        if self.scroll_timeout_id is not None:
+            GLib.source_remove(self.scroll_timeout_id)
+            self.scroll_timeout_id = None
+        
+        # Clear output immediately
+        self.clear_output()
+        
+        # Also check if we should show another player
         self.show_most_important_player()
 
 

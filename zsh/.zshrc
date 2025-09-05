@@ -1,3 +1,7 @@
+## ssh
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add ~/.ssh/id_ed25519 2> /dev/null
+
 ### Before doing anything else, restore the last pwd.
 if [[ -f ~/.last_pwd ]]; then 
 	cd $(cat ~/.last_pwd)
@@ -140,8 +144,6 @@ export EDITOR='nvim'
 export PATH="./:$HOME/.local/share/gem/ruby/3.4.0/bin/:$PATH"
 
 ### aliases 
-# Neofetch
-alias neofetch='fastfetch'
 # Machine control
 alias reboot="shutdown -r now"
 alias shut="shutdown -h now"
@@ -161,13 +163,21 @@ alias yeet='sudo pacman -Rns'
 alias age='os-time.sh'
 # Lazygit
 alias lgit='lazygit'
+# Lazydocker
+alias ldocker='lazydocker'
 # Reflector
 alias reflector='reflector --country Spain --latest 5 --protocol https --protocol http --sort rate'
 # Fortune
 alias quotes='watch -n 20 fortune'
+# Imporved df
+alias space='df /home/javier/Desktop /home/javier/Desktop/RASPBERRY -h 2> /dev/null'
 
-### fzf
-# source <(fzf --zsh)
+### compinstall (completions)
+zstyle :compinstall filename '$HOME/.zshrc'
+autoload -Uz compinit && compinit
+
+### Raspberry Pi 5 home server ssh access
+source ~/.zshrc_raspberry
 
 ### valgrind
 export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
@@ -176,17 +186,10 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt nomatch
 unsetopt autocd beep extendedglob notify
 bindkey -v
 
-### compinstall
-zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
-compinit
-
 ### yazi (permite cambiar el directorio)
-
 function y() {
 	local tmp cwd
 	tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -204,3 +207,29 @@ function chpwd() {
 TRAPEXIT() {
 	pwd > ~/.last_pwd;
 }
+
+### fzf
+# Disable zsh globbing (*, ?, etc.)
+setopt no_nomatch
+setopt no_glob
+unsetopt extended_glob
+# Load fzf options
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTLR_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+export FZF_COMPLETION_TRIGGER='*'
+export FZF_COMPLETION_OPTS='--preview "if [[ -d {} ]]; then colorls -a --color=always {}; else bat --color=always {}; fi" --preview-window=right:55%:nowrap'
+# Override completion command function for files
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude .git 
+}
+# Override completion command function for directories
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude .git
+}
+# Change Alt+C to Ctrl+F
+bindkey -r '^[c'
+bindkey '^f' fzf-cd-widget

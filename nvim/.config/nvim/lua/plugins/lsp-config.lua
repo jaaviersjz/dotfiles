@@ -20,6 +20,7 @@ return {
 					"lua_ls",
 					"clangd",
 					"pyright",
+          "ts_ls",
 				},
 				auto_install = true,
 			})
@@ -30,6 +31,7 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			-- LUA config
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
@@ -52,6 +54,16 @@ return {
 					"clangd",
 				},
 			})
+      -- Typescript and Javascript config
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+          }
+        },
+      })
+
 			-- GENERAL configurations
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})

@@ -7,6 +7,7 @@
         "custom/logo",
         "hyprland/workspaces",
         "custom/spotify",
+        "custom/context",
     ],
     "modules-center": [
         "clock"
@@ -58,6 +59,7 @@
         "critical-threshold": 90,
         "format": "{temperatureC}°C",
         "interval": 1,
+        "tooltip": false 
     },
     "memory": {
         "interval": 5,
@@ -77,13 +79,10 @@
         "format-wifi" : "{icon}",
         "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
         "format-ethernet": "󰀂",
-	      "format-alt" : "󱛇",
         "format-disconnected" : "󰖪",
 	      "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
 	      "tooltip-format-disconnected": "Disconnected",
-	      "on-click": "~/.config/rofi/wifi/wifi.sh &",
-        "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
 	      "interval": 5,
 	      "nospacing": 1,
     },
@@ -159,6 +158,12 @@
         "tooltip": false,
         "format": "{} ",
         "return-type": "json",
+    },
+    "custom/context": {
+        "exec": "~/dotfiles/waybar/.config/waybar/context.sh",
+        "max-length": 50,
+        "tooltip": true,
+        "format": "{}",
     },
 }
 

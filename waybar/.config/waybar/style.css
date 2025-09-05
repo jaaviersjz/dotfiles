@@ -50,6 +50,16 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#custom-context {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 8px 12px;
+  border-left: 2px solid #00ffff;
+  margin: 6px 3px;
+}
+
 #memory,
 #temperature,
 #custom-power,

@@ -8,6 +8,7 @@ bibata-cursor-theme
 bluez
 bluez-utils
 brightnessctl
+btop
 btrfs-progs
 catppuccin-gtk-theme-mocha
 cava
@@ -17,6 +18,9 @@ curl
 decibels
 dhclient
 discord
+docker
+docker-buildx
+docker-compose
 dosfstools
 efibootmgr
 epiphany
@@ -62,6 +66,7 @@ gnome-tour
 gnome-user-docs
 gnome-user-share
 gnome-weather
+gnu-netcat
 google-chrome
 grilo-plugins
 grub
@@ -82,9 +87,11 @@ hyprland
 hyprlock
 hyprpaper
 hyprshot-git
+inetutils
 iw
 jupyterlab
 kitty
+lazydocker
 lazygit
 less
 linux
@@ -101,6 +108,7 @@ mtools
 nautilus
 neovim
 networkmanager
+nmap
 noto-fonts
 noto-fonts-cjk
 ntfs-3g
@@ -128,6 +136,7 @@ sl
 snapshot
 sox
 spotify
+sshfs
 stow
 sudo
 sushi
@@ -171,6 +180,8 @@ virtualbox-guest-iso
 virtualbox-host-modules-arch
 visual-studio-code-bin
 vlc
+vmware-keymaps
+vmware-workstation
 waybar
 wget
 wlogout
