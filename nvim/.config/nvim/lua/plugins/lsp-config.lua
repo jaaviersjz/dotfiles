@@ -20,7 +20,7 @@ return {
 					"lua_ls",
 					"clangd",
 					"pyright",
-          "ts_ls",
+					"ts_ls",
 				},
 				auto_install = true,
 			})
@@ -29,40 +29,36 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
+			local lspconfig = vim.lsp.config
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- LUA config
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						runtime = { version = "LuaJIT" },
-						diagnostics = { globals = { "vim" } },
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
-						},
-						telemetry = { enable = false },
+			lspconfig.lua_ls.capabilities = capabilities
+			vim.lsp.config.lua_ls.settings = {
+				Lua = {
+					runtime = { version = "LuaJIT" },
+					diagnostics = { globals = { "vim" } },
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
 					},
+					telemetry = { enable = false },
 				},
-			})
+			}
 			-- C/C++ config
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-				cmd = {
-					"clangd",
+			vim.lsp.config.clangd.capabilities = capabilities
+			vim.lsp.config.clangd.cmd = {
+				"clangd",
+			}
+			-- Typescript and Javascript config
+			vim.lsp.config.ts_ls.capabilites = capabilities
+			vim.lsp.config.initon_options = {
+				preferences = {
+					disableSuggestions = true,
 				},
-			})
-      -- Typescript and Javascript config
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-        init_options = {
-          preferences = {
-            disableSuggestions = true,
-          }
-        },
-      })
+			}
+			-- Python config
+			vim.lsp.config.pyright.capabilities = capabilities
 
 			-- GENERAL configurations
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
@@ -83,6 +79,8 @@ return {
 				},
 			})
 			vim.keymap.set("n", "J", vim.diagnostic.open_float, { desc = "" })
+			vim.lsp.handlers["textDocument/hover"] =
+				vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", syntax = "markdown" })
 		end,
 	},
 }

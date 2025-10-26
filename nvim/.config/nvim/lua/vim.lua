@@ -11,6 +11,7 @@ vim.o.number = true
 -- Mappings
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "<M-Tab>", "<C-x><C-o>", {})
+vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>", {})
 -- Zsh == Bash for highlighting
 vim.filetype.add({
   extension = {

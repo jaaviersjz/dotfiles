@@ -4,6 +4,7 @@ baobab
 base
 base-devel
 bat
+bc
 bibata-cursor-theme
 bluez
 bluez-utils
@@ -14,6 +15,7 @@ catppuccin-gtk-theme-mocha
 cava
 cmake
 cmatrix
+cpio
 curl
 decibels
 dhclient
@@ -68,6 +70,7 @@ gnome-user-share
 gnome-weather
 gnu-netcat
 google-chrome
+gperf
 grilo-plugins
 grub
 gvfs
@@ -94,6 +97,7 @@ kitty
 lazydocker
 lazygit
 less
+libslirp
 linux
 linux-firmware
 linux-headers
@@ -103,10 +107,12 @@ make
 malcontent
 man-db
 man-pages
+meson
 mpv
 mtools
 nautilus
 neovim
+net-tools
 networkmanager
 nmap
 noto-fonts
@@ -118,12 +124,14 @@ obs-studio
 orca
 os-prober
 pacman-contrib
+patchutils
 pipes.sh
 pipewire
 planify
 plocate
 python-pip
 python312
+qt6-charts
 reflector
 ripgrep
 ruby
@@ -136,6 +144,7 @@ sl
 snapshot
 sox
 spotify
+spotify-adblock
 sshfs
 stow
 sudo

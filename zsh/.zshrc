@@ -1,6 +1,8 @@
 ## ssh
-eval "$(ssh-agent -s)" > /dev/null
-ssh-add ~/.ssh/id_ed25519 2> /dev/null
+if ! ssh-add -l &> /dev/null; then
+  eval "$(ssh-agent -s)" > /dev/null
+  ssh-add ~/.ssh/id_ed25519 2> /dev/null
+fi
 
 ### Before doing anything else, restore the last pwd.
 if [[ -f ~/.last_pwd ]]; then 
@@ -116,19 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
 ##### POWERLEVEL10K
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -147,6 +136,8 @@ export PATH="./:$HOME/.local/share/gem/ruby/3.4.0/bin/:$PATH"
 # Machine control
 alias reboot="shutdown -r now"
 alias shut="shutdown -h now"
+# Nvim
+alias nv="nvim"
 # Improved ls
 alias ls="colorls" 		
 # Improved fzf (open new file with nvim)
@@ -169,8 +160,13 @@ alias ldocker='lazydocker'
 alias reflector='reflector --country Spain --latest 5 --protocol https --protocol http --sort rate'
 # Fortune
 alias quotes='watch -n 20 fortune'
-# Imporved df
+# Improved df
 alias space='df /home/javier/Desktop /home/javier/Desktop/RASPBERRY -h 2> /dev/null'
+# Improved package search and installation
+alias pkg='/home/javier/.zshrc_packages'
+# Improved man pages
+alias h='/home/javier/.zshrc_man'
+
 
 ### compinstall (completions)
 zstyle :compinstall filename '$HOME/.zshrc'
@@ -184,8 +180,9 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 
 ### zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+HISTCONTROL=ignoreboth # Consecutive duplicates and commands starting with space are not saved
 unsetopt autocd beep extendedglob notify
 bindkey -v
 
