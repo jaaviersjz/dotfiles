@@ -21,6 +21,7 @@ return {
 					"clangd",
 					"pyright",
 					"ts_ls",
+          "bashls",
 				},
 				auto_install = true,
 			})
@@ -59,6 +60,8 @@ return {
 			}
 			-- Python config
 			vim.lsp.config.pyright.capabilities = capabilities
+      -- Bash conifig
+      vim.lsp.config.bashls.capabilities = capabilities
 
 			-- GENERAL configurations
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

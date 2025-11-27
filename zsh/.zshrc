@@ -6,7 +6,7 @@ fi
 
 ### Before doing anything else, restore the last pwd.
 if [[ -f ~/.last_pwd ]]; then 
-	cd $(cat ~/.last_pwd)
+	cd $(cat ~/.last_pwd) &> /dev/null
 fi
 
 ### Cursor
@@ -149,7 +149,7 @@ alias c='clear'
 # Valgrind (debug)
 alias valgrind='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s'
 # Remove package
-alias yeet='sudo pacman -Rns'
+alias yeet='sudo pacman -Rns --color=always'
 # OS installation time
 alias age='os-time.sh'
 # Lazygit
@@ -166,6 +166,8 @@ alias space='df /home/javier/Desktop /home/javier/Desktop/RASPBERRY -h 2> /dev/n
 alias pkg='/home/javier/.zshrc_packages'
 # Improved man pages
 alias h='/home/javier/.zshrc_man'
+# Improved pacman
+alias pacman='pacman --color=always'
 
 
 ### compinstall (completions)

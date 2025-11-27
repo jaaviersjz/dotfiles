@@ -16,7 +16,9 @@ cava
 cmake
 cmatrix
 cpio
+cpu-x
 curl
+cursor-bin
 decibels
 dhclient
 discord
@@ -24,6 +26,7 @@ docker
 docker-buildx
 docker-compose
 dosfstools
+downgrade
 efibootmgr
 epiphany
 evince
@@ -69,6 +72,7 @@ gnome-user-docs
 gnome-user-share
 gnome-weather
 gnu-netcat
+gnuplot
 google-chrome
 gperf
 grilo-plugins
@@ -87,9 +91,11 @@ gvfs-wsdd
 htop
 hypridle
 hyprland
+hyprland-guiutils
 hyprlock
 hyprpaper
 hyprshot-git
+hyprtoolkit
 inetutils
 iw
 jupyterlab
@@ -180,6 +186,7 @@ tk
 tldr
 tmux
 totem
+traceroute
 tree-sitter-cli
 ufw
 valgrind
@@ -193,6 +200,7 @@ vmware-keymaps
 vmware-workstation
 waybar
 wget
+wireshark-qt
 wlogout
 wlsunset
 woff2-font-awesome
@@ -203,7 +211,6 @@ xdg-desktop-portal-hyprland
 xdg-user-dirs-gtk
 xorg-xrandr
 yay
-yay-debug
 yazi
 yelp
 zsh
