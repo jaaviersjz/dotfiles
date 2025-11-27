@@ -2,6 +2,10 @@
 - This repository contains the _dotfiles_ currently used in my **Arch Linux** setup.
 - My goal was to create an _elegant_, _functional_ and _productive_ environment. ✨
 
+# 📸 Showcase
+<img width="3840" height="2160" alt="look" src="https://github.com/user-attachments/assets/64803996-83c8-4a68-ad10-1d398efb4688"/>
+<img width="3840" height="2160" alt="fullLook" src="https://github.com/user-attachments/assets/ce784688-9e44-493b-9b8b-cb0e5437589b"/>
+
 # ⚙️ Components
 
 ## Cava
