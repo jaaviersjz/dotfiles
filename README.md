@@ -6,6 +6,8 @@
 <img width="3840" height="2160" alt="look" src="https://github.com/user-attachments/assets/64803996-83c8-4a68-ad10-1d398efb4688"/>
 <img width="3840" height="2160" alt="fullLook" src="https://github.com/user-attachments/assets/ce784688-9e44-493b-9b8b-cb0e5437589b"/>
 
+https://github.com/user-attachments/assets/83bc13ae-7213-4424-9b50-96436dc8c4ab
+
 # ⚙️ Components
 
 ## Cava
